@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>2024 신년계획 버킷리스트</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      @keyfames scale-out {
+        0% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      .bg {
+        background-image: url("./벚꽃.gif");
+        background-size: cover;
+        background-repeat: repeat;
+        margin: 0 auto;
+        background-color: black;
+      }
+      html {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bucket {
+        background-size: cover;
+        background-position: center;
+        margin: 8px;
+        position: relative;
+
+        font-weight: bold;
+        font-size: 10px;
+        text-align: center;
+        word-break: keep-all;
+      }
+
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .done::after {
+        content: "";
+        width: 120px;
+        height: 100px;
+        background-image: url("./leaf.png");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 20%;
+        animation: scale-out 0.5s ease-in-out 1;
+      }
+
+      .wrap {
+        flex-wrap: wrap;
+        width: 600px;
+      }
+
+      .msg {
+        margin: 20px 0 30px;
+        color: black;
+      }
+
+      .title {
+        margin-top: 100px;
+        color: pink;
+      }
+
+      .msg {
+        color: white;
+        margin-bottom: 60px;
+      }
+      .bucket {
+        width: 160px;
+        height: 160px;
+        background-size: cover;
+        background-position: center;
+      }
+      .img1 {
+        background-image: url("./cherryblossom1.png");
+        color: black;
+      }
+      .img2 {
+        background-image: url("./cherryblossom1.png");
+        color: floralwhite;
+      }
+      .img3 {
+        background-image: url("./cherryblossom1.png");
+        color: black;
+      }
+      .img4 {
+        background-image: url("./cherryblossom1.png");
+        color: floralwhite;
+      }
+      .img5 {
+        background-image: url("./cherryblossom1.png");
+        color: black;
+      }
+      .img6 {
+        background-image: url("./cherryblossom1.png");
+        color: floralwhite;
+      }
+      .img7 {
+        background-image: url("./cherryblossom1.png");
+        color: black;
+      }
+      .img8 {
+        background-image: url("./cherryblossom1.png");
+        color: floralwhite;
+      }
+      .img9 {
+        background-image: url("./cherryblossom1.png");
+        color: black;
+      }
+    </style>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="bg center">
+    <h1 class="title">SPHARTHON Bucket List</h1>
+    <p class="msg">꿈은 꾸는 것이 아닌, 이루는 것이다</p>
+    <div class="flex-row wrap">
+      <div class="bucket img1 center">나만의 앱 만들기</div>
+      <div class="bucket img2 center">데스크테리어 완성하기</div>
+      <div class="bucket img3 center">유럽 여행 가기</div>
+      <div class="bucket img4 center">영어 회화 마스터</div>
+      <div class="bucket img5 center">스페인어 마스터</div>
+      <div class="bucket img6 center">5kg 감량하기</div>
+      <div class="bucket img7 center">내배캠 무사히 끝내기</div>
+      <div class="bucket img8 center">에어팟 맥스 구매</div>
+      <div class="bucket img9 center">행복하자 :> </div>
+    
+      <script>
+      // 페이지 로드 시 이전 상태 복원
+          document.addEventListener("DOMContentLoaded", (event) => {
+            const buckets = document.querySelectorAll(".bucket");
+            buckets.forEach((bucket, index) => {
+              // 로컬 스토리지에서 상태 읽기
+              const isDone = localStorage.getItem("bucket" + index) === "done";
+              if (isDone) {
+                bucket.classList.add("done");
+              }
+            });
+          });
+
+          // 버킷 리스트 클릭 이벤트
+          const buckets = document.querySelectorAll(".bucket");
+          buckets.forEach((bucket, index) => {
+            bucket.addEventListener("click", function () {
+              // 클래스 토글
+              bucket.classList.toggle("done");
+
+              // 로컬 스토리지에 상태 저장
+              if (bucket.classList.contains("done")) {
+                localStorage.setItem("bucket" + index, "done");
+              } else {
+                localStorage.setItem("bucket" + index, "");
+              }
+
+              alert("달성을 축하합니다!")
+            });
+          });
+      </script>
+
+  </body>
+</html>
